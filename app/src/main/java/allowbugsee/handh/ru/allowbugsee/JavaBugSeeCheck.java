@@ -10,8 +10,8 @@ public class JavaBugSeeCheck {
     public static Boolean check(Context context) {
         ContentResolver cr = context.getContentResolver();
         String[] selectionArgs = new String[]{"bugsee"};
-        Cursor c = cr.query(Uri.parse("content://ru.handh.abs.allowed"), null, null, selectionArgs, null);
-        return c.getCount() > 0;
+        Cursor cursor = cr.query(Uri.parse("content://ru.handh.abs.allowed"), null, null, selectionArgs, null);
+        return (cursor != null) && (cursor.getCount() > 0);
     }
 
 }

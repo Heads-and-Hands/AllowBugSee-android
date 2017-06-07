@@ -11,9 +11,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // Kotlin check example
-        //val bugSeeEnable = KotlinBugSeeCheck(this)
+        val bugSeeEnable = KotlinBugSeeCheck(this)
         // Java check example
-        val bugSeeEnable = JavaBugSeeCheck.check(this);
+        // val bugSeeEnable = JavaBugSeeCheck.check(this);
 
         val txtProviderResult: TextView = findViewById(R.id.txtProviderResult) as TextView
         if (bugSeeEnable) {
