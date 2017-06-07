@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         // Java check example
         // val bugSeeEnable = JavaBugSeeCheck.check(this);
 
-        val txtProviderResult: TextView = findViewById(R.id.txtProviderResult) as TextView
+        val txtProviderResult = findViewById(R.id.txtProviderResult) as TextView
         if (bugSeeEnable) {
             txtProviderResult.setText("BugSee allowed")
         } else {
