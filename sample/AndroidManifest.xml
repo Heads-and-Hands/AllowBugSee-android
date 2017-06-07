@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.sample">
+
+    <uses-permission android:name="ru.handh.abs.READ"/> <!--You should add this line to get permission to read value from content provider-->
+
+    <application>
+      <!--SOME CODE-->
+    </application>
+
+</manifest>
