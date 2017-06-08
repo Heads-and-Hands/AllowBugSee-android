@@ -1,9 +1,7 @@
 package allowbugsee.handh.ru.allowbugsee
 
-import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.widget.TextView
 import android.widget.ToggleButton
 
 class MainActivity : AppCompatActivity() {
@@ -27,9 +25,9 @@ class MainActivity : AppCompatActivity() {
     fun update() {
 
         // Kotlin check example
-        // val bugSeeEnable = KotlinBugSeeCheck(this)
+        // val bugSeeEnable = KotlinBugseeCheck(this)
         // Java check example
-        val bugSeeEnable = JavaBugSeeCheck.check(this)
+        val bugSeeEnable = JavaBugseeCheck.check(this)
 
         toggleButton.isChecked = bugSeeEnable
     }

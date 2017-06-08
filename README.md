@@ -4,7 +4,7 @@
 В проекте в MainActivity пример проверки, которую нужно использовать в проекте при подключении BugSee
 
 // Kotlin check example
-val bugSeeEnable = KotlinBugSeeCheck(this)
+val bugSeeEnable = KotlinBugseeCheck(this)
 
 // Java check example
 Boolean bugSeeEnable = JavaBugSeeCheck.check(this);
