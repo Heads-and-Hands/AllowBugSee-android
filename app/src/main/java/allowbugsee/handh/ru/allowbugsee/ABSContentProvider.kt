@@ -1,18 +1,15 @@
 package allowbugsee.handh.ru.allowbugsee
 
+import android.app.Application
 import android.content.ContentProvider
 import android.content.ContentValues
+import android.content.Context
 import android.database.Cursor
 import android.database.MatrixCursor
 import android.net.Uri
 import android.util.Log
 
 class ABSContentProvider: ContentProvider() {
-
-    // Тут можно добавлять новые разрешения или менять значения у старых
-    val data: HashMap<String, Boolean> = hashMapOf(
-            "bugsee" to true
-    )
 
     override fun getType(p0: Uri?): String = ""
 
@@ -27,8 +24,10 @@ class ABSContentProvider: ContentProvider() {
         val columns = arrayOf("service")
         val cursor: MatrixCursor = MatrixCursor(columns)
 
+        val data = DataManager().readData(context)
+
         if (p3 != null) {
-            val i = data.keys
+            data.keys
                     .filter { k -> data.get(k) as Boolean }
                     .filter { s -> p3.contains(s) }
                     .map { s -> cursor.addRow(arrayOf(s)) }
@@ -39,7 +38,6 @@ class ABSContentProvider: ContentProvider() {
         }
 
         return cursor
-
     }
 
     override fun insert(p0: Uri?, p1: ContentValues?): Uri? = null
