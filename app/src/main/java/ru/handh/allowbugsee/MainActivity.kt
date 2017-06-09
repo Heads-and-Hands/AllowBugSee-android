@@ -1,4 +1,4 @@
-package allowbugsee.handh.ru.allowbugsee
+package ru.handh.allowbugsee
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -15,20 +15,20 @@ class MainActivity : AppCompatActivity() {
         toggleButton = findViewById(R.id.toggleButtonBugSee) as ToggleButton
 
         toggleButton.setOnClickListener {
-            DataManager().writeData(this, "bugsee", toggleButton.isChecked)
-            update()
+            if (toggleButton.isChecked) {
+                DataManager().allow(this)
+            } else {
+                DataManager().disallow(this)
+            }
+            //update()
         }
+
         update()
 
     }
 
     fun update() {
-
-        // Kotlin check example
-        // val bugSeeEnable = KotlinBugseeCheck(this)
-        // Java check example
-        val bugSeeEnable = JavaBugseeCheck.check(this)
-
+        val bugSeeEnable = DataManager().isAllowed(this)
         toggleButton.isChecked = bugSeeEnable
     }
 

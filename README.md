@@ -1,18 +1,16 @@
 # AllowBugSeeAndroid
-Приложение установив которое, можно разрешить использование BugSee в приложение HandH.
+
+Приложение установив которое, можно разрешить использование BugSee в приложении HandH.
+
 Скачать apk можно в нашем HockeyApp [тут](https://rink.hockeyapp.net/apps/443e3d7a0c5d4d05a57d0c364a82b278)
 
-В своем проекте добавь в манифест
-```
-<uses-permission android:name="allowbugsee.handh.ru.allowbugsee.ABSContentProvider.permRead" />
-```
-
-В проекте в MainActivity пример проверки, которую нужно использовать в проекте при подключении BugSee
+В своем проекте добавь в Application
 
 ```
-// Kotlin check example
-val bugSeeEnable = KotlinBugseeCheck(this)
-
-// Java check example
-Boolean bugSeeEnable = JavaBugSeeCheck.check(this);
+ if (BuildConfig.BUILD_TYPE.equals(Constants.INTERNAL) && JavaBagseeCheck.check(this)) {
+            //внутренние  билды
+            Bugsee.launch(this, "bugsee_key");
+        } 
 ```
+
+В данный момент работает только Java класс
